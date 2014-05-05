@@ -1,0 +1,14 @@
+#generator {
+    text-align:left;
+    padding:15px;
+    border:1px dashed #333;
+    background-color:#eee;
+}
+
+#result {
+    padding: 20px;
+}
+
+#footer {
+    text-align:center;
+}
