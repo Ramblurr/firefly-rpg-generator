@@ -39,6 +39,10 @@ body, .container {
     margin-bottom: 30px;
 }
 
+#travel-calc table {
+    text-align: left;
+}
+
 #result {
     padding: 20px;
 }

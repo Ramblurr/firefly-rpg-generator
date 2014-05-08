@@ -232,25 +232,28 @@ for( var i = 0, len = locations.length; i < len; i++ ) {
 }
 
 function calculate_distance() {
-        var origin = lookup[$("#origin").val()];
-        var dest = lookup[$("#destination").val()];
-        console.log(origin);
-        console.log(dest);
-        var speed = $("#speed").val();
-        var hours_per_au = 9;
+    var origin = lookup[$("#origin").val()];
+    var dest = lookup[$("#destination").val()];
+    var speed = $("#speed").val();
+    var speed = $("#speed").val();
+    var hours_per_au = $("#base-speed").val();
 
-        var distance = Math.sqrt((Math.pow((origin.x-dest.x),2))+Math.pow((origin.y-dest.y),2));
+    var distance = Math.sqrt((Math.pow((origin.x-dest.x),2))+Math.pow((origin.y-dest.y),2));
 
-        var time = (distance * (hours_per_au/speed));
-        if( distance < 0.055 ) {
-            time *= 60;
-        }
-        var duration_precise = moment.preciseDiff(moment(), moment().add('hours', time));
+    var time = (distance * (hours_per_au/speed));
+    if( distance < 0.055 ) {
+        time *= 60;
+    }
+    var duration_precise = moment.preciseDiff(moment(), moment().add('hours', time));
 
-        var abbr = $("<abbr>", { title: time+" hours", text: duration_precise});
-        $("#res-distance").text(distance.toFixed(2));
-        $("#res-time").empty().prepend(abbr);
-
+    var abbr = $("<abbr>", { title: time.toFixed(3)+" hours", text: duration_precise});
+    $("#res-distance").text(distance.toFixed(4));
+    $("#res-time").empty().prepend(abbr);
+    var arrow = $("<span class='glyphicon glyphicon-arrow-right'></span>");
+    var origin_txt = $("<span>").text(origin.name+" ");
+    var dest_txt = $("<span>").text(" "+dest.name);
+    $("#itinerary").empty().prepend(dest_txt).prepend(arrow).prepend(origin_txt);
+    $("#results").show();
 }
 
 $(function() {
@@ -264,8 +267,10 @@ $(function() {
         $option.appendTo(sel_origin);
         $option.clone().appendTo(sel_dest);
     });
+    sel_origin.chosen();
+    sel_dest.chosen();
     $('#travel-calc :input').change(function(){
         calculate_distance();
     });
-    calculate_distance();
+    $("#results").hide();
 });

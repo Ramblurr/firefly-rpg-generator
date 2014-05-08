@@ -5,11 +5,11 @@
     <title>
       Firefly RPG Travel Calculator
   </title>
-  <link href="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel=
-  "stylesheet">
+  <link href="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">
   <link href="styles.css" media="all" rel="stylesheet" type="text/css">
+  <link href="chosen.min.css" media="all" rel="stylesheet" type="text/css">
+  <link href="chosen-bootstrap.css" media="all" rel="stylesheet" type="text/css">
   </head>
-  
   <body>
     <div class="container">
       <!-- Static navbar -->
@@ -44,8 +44,7 @@
               <label for="origin" class="col-sm-2 control-label">
                 Origin
               </label>
-              <select class="form-control" id="origin">
-              </select>
+              <select data-placeholder="Choose Origin..." id="origin" class="chosen-select form-control"><option value=""></option>>></select>
             </div>
           </div>
           <div class="form-row">
@@ -53,14 +52,19 @@
               <label for="destination" class="col-sm-2 control-label">
                 Destination
               </label>
-              <select class="form-control" id="destination">
-              </select>
+              <select data-placeholder="Choose Destination..." id="destination" class="chosen-select form-control"><option value=""></option>>></select>
             </div>
           </div>
           <div class='form-row'>
+            <div class='col-xs-5 form-group required'>
+              <label class='control-label'>
+                Base Speed (Hours/AU)
+              </label>
+              <input id="base-speed" autocomplete='off' class='form-control' value='9' type='number'>
+            </div>
             <div class='col-xs-4 form-group required'>
               <label class='control-label'>
-                Speed
+                Speed Factor
               </label>
               <input id="speed" autocomplete='off' class='form-control' value='5' type='number'>
             </div>
@@ -74,7 +78,8 @@
             -->
           </div>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-6" id="results">
+        <h3 id="itinerary"></h3>
           <table class="table table-striped">
             <tr>
               <th scope="row">
@@ -114,15 +119,11 @@
 
         </div>
     </div>
-  <script src="https://code.jquery.com/jquery-2.1.1.min.js">
-  </script>
-  <script src="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js">
-  </script>
-  <script src="moment.min.js" type="text/javascript">
-  </script>
-  <script src="readable-range.js" type="text/javascript">
-  </script>
-  <script src="travel.js" type="text/javascript">
-  </script>
+  <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script src="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+  <script src="chosen.jquery.min.js" type="text/javascript"></script>
+  <script src="moment.min.js" type="text/javascript"></script>
+  <script src="readable-range.js" type="text/javascript"></script>
+  <script src="travel.js" type="text/javascript"></script>
 </body>
 </html>
