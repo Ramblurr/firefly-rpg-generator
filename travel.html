@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <title>
+      Firefly RPG Travel Calculator
+  </title>
+  <link href="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel=
+  "stylesheet">
+  <link href="styles.css" media="all" rel="stylesheet" type="text/css">
+  </head>
+  
+  <body>
+    <div class="container">
+      <!-- Static navbar -->
+      <div class="navbar navbar-default" role="navigation">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">Firefly RPG Tools</a>
+          </div>
+          <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+              <li ><a href="names.html">Name Generator</a></li>
+              <li class="active"><a href="travel.html">Travel Calculator</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+            </ul>
+          </div><!--/.nav-collapse -->
+        </div><!--/.container-fluid -->
+      </div>
+
+
+      <section id="travel-calc" class="box row">
+      <h1>Travel Distance Calculator</h1>
+        <div class="col-md-4" id="opts" role="form">
+          <div class="form-row">
+            <div class='col-xs-12 form-group required'>
+              <label for="origin" class="col-sm-2 control-label">
+                Origin
+              </label>
+              <select class="form-control" id="origin">
+              </select>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class='col-xs-12 form-group required'>
+              <label for="destination" class="col-sm-2 control-label">
+                Destination
+              </label>
+              <select class="form-control" id="destination">
+              </select>
+            </div>
+          </div>
+          <div class='form-row'>
+            <div class='col-xs-4 form-group required'>
+              <label class='control-label'>
+                Speed
+              </label>
+              <input id="speed" autocomplete='off' class='form-control' value='5' type='number'>
+            </div>
+            <!--
+            <div class='col-sm-4 form-group required'>
+              <label class='control-label'>
+                Hard Burn?
+              </label>
+              <input type='checkbox'>
+            </div>
+            -->
+          </div>
+        </div>
+        <div class="col-md-4">
+          <table class="table table-striped">
+            <tr>
+              <th scope="row">
+                Distance (AU)
+              </th>
+              <td id="res-distance">
+              </td>
+            </tr>
+            <tr>
+              <th scope="row">
+                Time
+              </th>
+              <td id="res-time" title="">
+              </td>
+            </tr>
+          </table>
+        </div>
+  </section>
+
+<!---
+  <section id="" class="box row">
+  <div class="col-md-6">
+      <p></p>
+  </div>
+  </section>
+  -->
+
+  </div>
+    <div id="footer">
+        <div class="container">
+            <p class="text-muted">
+              Adapted from <a href=
+              "https://docs.google.com/a/binaryelysium.com/spreadsheet/ccc?key=0AlH9FMJVH0L5dFZ6WVZtYUVUTVNybmlEdkliMXpZS1E&hl=en#gid=0"
+              title= "firefly travel calculator"> this spreadsheet </a> 2014, thanks to
+              the original unknown author
+          </p>
+
+        </div>
+    </div>
+  <script src="https://code.jquery.com/jquery-2.1.1.min.js">
+  </script>
+  <script src="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js">
+  </script>
+  <script src="moment.min.js" type="text/javascript">
+  </script>
+  <script src="readable-range.js" type="text/javascript">
+  </script>
+  <script src="travel.js" type="text/javascript">
+  </script>
+</body>
+</html>

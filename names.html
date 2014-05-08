@@ -5,32 +5,62 @@
     <title>Firefly RPG Name Generator</title>
     <link href="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel=
     "stylesheet">
-    <link href="names.css" media="all" rel="stylesheet" type="text/css">
+    <link href="styles.css" media="all" rel="stylesheet" type="text/css">
    </head>
 
 <body>
     <div class="container">
-        <h1>Firefly RPG Name Generator</h1>
+      <!-- Static navbar -->
+      <div class="navbar navbar-default" role="navigation">
+        <div class="container-fluid">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">Firefly RPG Tools</a>
+          </div>
+          <div class="navbar-collapse collapse">
+            <ul class="nav navbar-nav">
+              <li class="active"><a href="#">Name Generator</a></li>
+              <li><a href="travel.html">Travel Calculator</a></li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+            </ul>
+          </div><!--/.nav-collapse -->
+        </div><!--/.container-fluid -->
+      </div>
 
-        <section id="generator">
-            <div class="form-inline" id="opts">
-                <select class="form-control" id="gentype">
-                    </select> <button class="btn btn-primary" id="generate" type=
-                    "button">Generate</button> <button class="btn" id="clear" type=
-                    "button">Reset</button>
+        <section id="generator" class="box row">
+            <h1>Generator</h1>
+            <div class="col-md-4" id="opts" role="form">
+                <div class="form-inline" id="opts">
+                    <div class="form-row">
+                        <select class="form-control" id="gentype">
+                        </select>
+                    </div>
+                    <div class="form-row">
+                        <button class="btn btn-primary" id="generate" type=
+                            "button">Generate</button> <button class="btn" id="clear" type=
+                            "button">Reset</button>
+                </div>
+                </div>
+
             </div>
-
-            <div id="result"></div>
+            <div id="result"class="col-md-4"></div>
         </section>
-
-        <p class="small">Excerpt from <a href=
-        "http://www.margaretweis.com/index.php/shop#!/~/product/id=29762279" title=
-        "firefly rpg corebook">Firefly RPG Corebook</a> pgs 162, 173, 182, 183, 193</p>
-
-        <section id="footer">
-            <p>props to <a href="http://donjon.bin.sh/site/code/random/">drow</a> for the random
+    </div>
+    <div id="footer">
+        <div class="container">
+            <p class="text-muted">Excerpt from <a href=
+                "http://www.margaretweis.com/index.php/shop#!/~/product/id=29762279" title=
+                "firefly rpg corebook">Firefly RPG Corebook</a> pgs 162, 173, 182, 183, 193.
+            Props to <a href="http://donjon.bin.sh/site/code/random/">drow</a> for the random
             generator engine</p>
-        </section>
+
+        </div>
     </div>
     <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
     <script src="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
