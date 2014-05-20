@@ -1,3 +1,5 @@
+/*
+ * JS code from glimmsworkshop.com/2012/03/13/core-mechanics-mixed-dice/
 var natsort = function(a,b) {
   if (isNaN(a) || isNaN(b)) {
     return a > b ? 1 : -1;
@@ -48,6 +50,7 @@ var cortexenum = function(dice) {
     });
     return two;
 };
+*/
 
 //var go = cortexenum([[1,2,3,4],[1,2,3,4]]);
 
