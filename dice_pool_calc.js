@@ -1,11 +1,6 @@
+
 /*
  * JS code from glimmsworkshop.com/2012/03/13/core-mechanics-mixed-dice/
-var natsort = function(a,b) {
-  if (isNaN(a) || isNaN(b)) {
-    return a > b ? 1 : -1;
-  }
-  return a - b;
-}
 var flatten = function(l) {
         return l.reduce(function(m, x) {
             if (x.length) m = m.concat(x);
@@ -53,6 +48,13 @@ var cortexenum = function(dice) {
 */
 
 //var go = cortexenum([[1,2,3,4],[1,2,3,4]]);
+//
+var natsort = function(a,b) {
+  if (isNaN(a) || isNaN(b)) {
+    return a > b ? 1 : -1;
+  }
+  return a - b;
+}
 
 function DieRoll(sides, result) {
     this.sides = sides;
@@ -124,16 +126,27 @@ function DicePool(keep) {
         return cloned;
     };
 }
+//pool: int[], keep int
 function CortexDice(pool, keep) {
     this.keep = keep;
-    this.dice = pool;
-    //dice: int[]
+    this.dice = pool.sort(natsort);
     this.getMaximum = function() {
 
         if( this.dice.length == 1)
             return this.dice[0];
         var l = this.dice.length;
-        return this.dice[l-1]+this.dice[l-2];
+        for(var i =0; i < l; i++) {
+            console.log(this.dice[i]);
+        }
+        var result = 0;
+        var bound = Math.min(l-this.keep, l);
+        var min_bound = Math.max(l-this.keep, 0);
+        var highest = this.dice.slice(min_bound, l);
+        for ( var i = 0; i < highest.length; i++) {
+            console.log("f:"+i+ " : " + highest[i]);
+            result+= highest[i];
+        }
+        return result;
     };
     this.getResultsTable = function() {
         var possibles = Array();
