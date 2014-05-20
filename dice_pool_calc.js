@@ -74,7 +74,8 @@ function DiceSort(A, B) {
     }
 };
 
-function DicePool() {
+function DicePool(keep) {
+    this.keep = keep;
     this.pool = Array();
     this.addDie = function(sides) {
         var die = new DieRoll(sides, -1);
@@ -90,11 +91,13 @@ function DicePool() {
         } else if (this.pool.length == 1) {
             return this.pool[0].result == 1 ? 0 : this.pool[0].result;
         } else {
+            var bound = Math.min(this.keep, this.pool.length);
             var result = 0;
-            if(this.pool[0].result != 1)
-                result += this.pool[0].result;
-            if(this.pool[1].result != 1)
-                result += this.pool[1].result;
+            var highest = this.pool.slice(0,bound);
+            for ( var i = 0; i < bound; i++) {
+                if( highest[i].result != 1 )
+                    result += highest[i].result;
+            }
             return result;
         }
     };
@@ -110,7 +113,7 @@ function DicePool() {
         this.pool = this.pool.sort(DiceSort);
     };
     this.clone = function() {
-        var cloned = new DicePool();
+        var cloned = new DicePool(this.keep);
         for( var i = 0; i < this.pool.length; i++) {
             var die = this.pool[i];
             cloned.pool.push(new DieRoll(die.sides, die.result));
@@ -118,7 +121,8 @@ function DicePool() {
         return cloned;
     };
 }
-function CortexDice(pool) {
+function CortexDice(pool, keep) {
+    this.keep = keep;
     this.dice = pool;
     //dice: int[]
     this.getMaximum = function() {
@@ -135,7 +139,7 @@ function CortexDice(pool) {
             var cloned = Array();
             if( possibles.length == 0 ) {
                 for ( var j = 1; j <= sides; j++ ) {
-                    var pool = new DicePool();
+                    var pool = new DicePool(this.keep);
                     pool.addDieRoll(new DieRoll(sides, j));
                     cloned.push(pool);
                 }
@@ -200,10 +204,10 @@ function CortexDice(pool) {
 }
 
 self.addEventListener('message', function(e) {
-    console.log("WORKER GOT");
     var pool = e.data.pool;
+    var keep = e.data.keep;
 
-    var c = new CortexDice(pool);
+    var c = new CortexDice(pool,keep);
     var mean = c.getAverageResult();
     var mean_jinx= c.getAverageJinxes();
     var chance_jinx = c.getJinxChance();

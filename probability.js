@@ -81,6 +81,7 @@ $(function() {
     $('#tt_max').tooltip();
     $('#but_reset').click(function() {
         $('#dice_prob :input').val("");
+        $('#keep').val("2");
     });
     $('#dice_prob :input').change(function(){
 
@@ -89,12 +90,13 @@ $(function() {
         var d8 = Number($("#d8").val());
         var d10 = Number($("#d10").val());
         var d12 = Number($("#d12").val());
+        var keep = Number($("#keep").val());
 
         var pool = [dX(4,d4), dX(6,d6), dX(8,d8), dX(10,d10), dX(12,d12)];
         pool = pool.filter(function(n){ return n.length != 0 }).reduce(function(a,b) { return a.concat(b)});
         if (pool.length < 2 ) return;
 
-        worker.postMessage({'pool':pool});
+        worker.postMessage({'pool':pool, 'keep': keep});
         toggleSpinner();
     });
 });
