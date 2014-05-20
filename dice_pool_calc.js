@@ -135,15 +135,11 @@ function CortexDice(pool, keep) {
         if( this.dice.length == 1)
             return this.dice[0];
         var l = this.dice.length;
-        for(var i =0; i < l; i++) {
-            console.log(this.dice[i]);
-        }
         var result = 0;
         var bound = Math.min(l-this.keep, l);
         var min_bound = Math.max(l-this.keep, 0);
         var highest = this.dice.slice(min_bound, l);
         for ( var i = 0; i < highest.length; i++) {
-            console.log("f:"+i+ " : " + highest[i]);
             result+= highest[i];
         }
         return result;
