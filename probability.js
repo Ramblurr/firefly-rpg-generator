@@ -50,7 +50,7 @@ function render(result) {
         hAxis: {'title': 'Chance (%)'}
     };
 
-    $("#graph_note").removeClass('hide');
+    $("#graph_note").addClass('hide');
     var chart = new google.visualization.BarChart(document.getElementById('chart'));
     chart.draw(data, options);
     toggleSpinner();
