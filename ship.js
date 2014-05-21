@@ -110,7 +110,19 @@ function realistic() {
     $('#clear2').click(function() {
         $('#result2').empty();
     });
+    $('#randomize').click(function() {
+        var attrs = ['Hull', 'Engines', 'Systems'];
+        var attr = select_from(attrs);
+        $('input[name=attribute2]', '#ship2').prop('checked', false);
+        $('input[value="'+attr+'"]', '#ship2').prop('checked', true);
+        populate_parts_select(attr);
 
+        var part = select_from(components[attr]);
+        var complication = select_from(part.complications);
+        var opt = $('#components option[value="'+part.name+'"]');
+        opt.prop('selected', true);
+        $('#components').trigger('chosen:updated');
+    });
 }
 
 $(function() {
