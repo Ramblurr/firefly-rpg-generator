@@ -56,8 +56,11 @@ function technobabble() {
 function partsCallback(json) {
     for(var i = 0; i < json.feed.entry.length; i++){
         var entry = json.feed.entry[i];
+        if (!entry) continue;
         var attr = entry.gsx$attribute.$t;
+        if (!attr) continue;
         var part = entry.gsx$component.$t;
+        if (!part) continue;
         var item = {name:part, complications: []};
         for( var prop in entry ) {
             if( prop.match(/gsx\$complication/) ) {
@@ -65,7 +68,9 @@ function partsCallback(json) {
                     item.complications.push(entry[prop].$t);
             }
         }
-        components[attr].push(item);
+        var comp = components[attr];
+        if(!comp) continue;
+        comp.push(item);
     }
     $('#ship2 :input').prop('disabled', false);
     var select = $("#components");
