@@ -115,6 +115,16 @@ function realistic() {
     $('#clear2').click(function() {
         $('#result2').empty();
     });
+    $('#randompart').click(function() {
+        var attr = $('input[name=attribute2]:checked', '#ship2').val()
+        var part = select_from(components[attr]);
+        var complication = select_from(part.complications);
+        var opt = $('#components option[value="'+part.name+'"]');
+        opt.prop('selected', true);
+        $('#components').trigger('chosen:updated');
+        $("#generate2").click();
+
+    });
     $('#randomize').click(function() {
         var attrs = ['Hull', 'Engines', 'Systems'];
         var attr = select_from(attrs);
@@ -127,6 +137,7 @@ function realistic() {
         var opt = $('#components option[value="'+part.name+'"]');
         opt.prop('selected', true);
         $('#components').trigger('chosen:updated');
+        $("#generate2").click();
     });
 }
 

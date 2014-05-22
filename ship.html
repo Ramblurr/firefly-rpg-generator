@@ -72,29 +72,36 @@
           <h1>Realistic Complications</h1>
           <div class="alert alert-warning"><strong><p>Help Needed!</strong> This generator needs more data! Send cool ship parts and complications to <a href="mailto:me@caseylink.com">Casey</a>.</p></div>
           <p>Randomly selects a more plausible complication based on ship components.</p>
-          <div class="col-md-4 form-horizontal" role="form" id="opts2">
-              <div class='col-xs-12 form-group required'>
-                  <label class="radio-inline">
-                      <input disabled type="radio" name="attribute2" id="attr_hull2" value="Hull" checked> Hull
-                  </label>
-                  <label class="radio-inline">
-                      <input disabled type="radio"  name="attribute2" id="attr_engines2" value="Engines"> Engines
-                  </label>
-                  <label class="radio-inline">
-                      <input disabled type="radio"  name="attribute2" id="attr_systems2" value="Systems"> Systems
-                  </label>
+          <div class="col-md-4" role="form" id="opts2">
+              <div class="row">
+                  <div class='col-md-10 form-group required'>
+                      <label class="radio-inline">
+                          <input disabled type="radio" name="attribute2" id="attr_hull2" value="Hull" checked> Hull
+                      </label>
+                      <label class="radio-inline">
+                          <input disabled type="radio"  name="attribute2" id="attr_engines2" value="Engines"> Engines
+                      </label>
+                      <label class="radio-inline">
+                          <input disabled type="radio"  name="attribute2" id="attr_systems2" value="Systems"> Systems
+                      </label>
+                  </div>
               </div>
 
-              <div class='col-xs-10 form-group required'>
-                  <label for="origin" class="col-sm-2 control-label">
-                  </label>
-                  <select disabled data-placeholder="Choose Component" id="components" class="chosen-select form-control"><option value=""></option>>></select>
+              <div class="row">
+                  <div class='col-md-8 form-group required'>
+                      <select disabled data-placeholder="Choose Component" id="components" class="chosen-select form-control"><option value=""></option>>></select>
+                  </div>
+                  <div class='col-md-2 form-group required'>
+                      <button disabled class="btn btn-primary" id="generate2" type="button">Generate</button>
+                  </div>
               </div>
 
-              <div class='col-xs-12 form-group required'>
-                  <button disabled class="btn btn-primary" id="generate2" type="button">Generate</button>
-                  <button disabled class="btn btn-info" id="randomize" type="button">Randomize</button>
-                  <button disabled class="btn" id="clear2" type="button">Reset</button>
+              <div class="row">
+                  <div class='col-xs-12 form-group required'>
+                      <button disabled class="btn btn-info" id="randompart" type="button">Random Part</button>
+                      <button disabled class="btn btn-info" id="randomize" type="button">Random All</button>
+                      <button disabled class="btn" id="clear2" type="button">Reset</button>
+                  </div>
               </div>
           </div>
           <div id="result2"class="col-md-7"></div>
